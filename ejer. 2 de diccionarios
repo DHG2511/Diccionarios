@@ -1,0 +1,58 @@
+diccionario1= {
+    'Euro':'€', 'Dollar':'$', 'Yen':'¥'
+}
+div = input("ingrese la divisa: " )
+if div.title() in diccionario1 :
+  print ("La divisa tiene el símbolo: ", diccionario1[div.title()])
+  
+else : 
+  print ("La divisa" , div , "no está en el diccionario")
+
+
+######################################################################################################################################
+
+
+datos={}
+nombre = input(" ingrese su nombre: ")
+edad= input(" ingrese su edad: ")
+direccion= input(" ingrese su direccion: ")
+telef = input(" ingrese su telefono: ")
+
+datos["nombre"] = nombre
+datos["edad"] = edad
+datos["direccion"] = direccion
+datos["telef"] = telef
+
+print(nombre + " tiene " + edad, " años, vive en " + direccion," y su numero de telefono es: " +  telef )
+
+
+######################################################################################################################################
+
+diccionario2= {
+    'Plátano':1.35, 'Manzana':0.80, 'Pera':0.85, 'Naranja':0.70
+}
+frutas = input("¿que fruta desea?: " )
+kilos = float(input("¿cuantos kilos desea?: " ))
+
+if frutas.title() in diccionario2 :
+  print("el precio por kilo: ", diccionario2[frutas.title()])
+  mult= kilos * diccionario2[frutas.title()]
+  print("el precio total es: ", mult )
+else : 
+  print("La fruta" , frutas , "no está en el diccionario")
+
+######################################################################################################################################
+
+
+listaDeCompra={}
+Arti = None
+precio = 0
+while True :
+  Arti = input("ingrese el articulo deseado: ")
+  if Arti != 'fin':
+    precio = int(input("ingrese el precio del producto: "))
+    listaDeCompra[Arti]=precio
+  else:
+    break
+
+print(listaDeCompra)
