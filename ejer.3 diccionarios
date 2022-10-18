@@ -1,0 +1,122 @@
+BaseDeDatos={}
+
+def create():
+    Cliente={}
+    Cedula=input("Ingrese cedula del cliente: ")
+    Cliente["Nombre"]=input("Ingrese nombre del cliente: ")
+    Cliente["Telefono"]=input("Ingrese telefono del cliente: ")
+    Cliente["Direccion"]=input("Ingrese direccion del cliente: ")
+    Prefe=input("escriba 'y' si el cliente es preferente:" )
+    if Prefe.lower()=='y':
+      Cliente["preferente"]=True
+    else:
+      Cliente["preferente"]=False
+    BaseDeDatos[Cedula]=Cliente
+    print ("create")
+    
+def delete():
+    Cedula=input("Ingrese cedula del cliente: ")
+    if Cedula in BaseDeDatos.keys():
+      del(BaseDeDatos[Cedula])
+    else:
+      print("no existe")
+    print( "delete")
+def show():
+    Cedula=input("Ingrese su cedula: ")
+    if Cedula in BaseDeDatos.keys():
+      print(BaseDeDatos[Cedula])
+    else:
+      print("no existe")
+    print("show")
+def show_all():
+    print(BaseDeDatos)
+def show_prefer():
+    for element in BaseDeDatos.values():
+      if element["preferente"]==True:
+        print(element)
+    print("show preferents")
+def end():
+    print("end")
+def default():
+    print("no valid op")
+switcher = {
+    1: create,
+    2: delete,
+    3: show,
+    4: show_all,
+    5: show_prefer,
+    6: end
+    }
+def switch(dayOfWeek):
+    return switcher.get(dayOfWeek, default)()
+
+while True:
+  opcion=int(input("ingrese una opción\n 1. crear cliente\n 2. borrar cliente\n 3. mostrar cliente\n 4. mostrar todos los clientes\n 5. mostrar clientes preferentes\n 6.terminar\n"))
+  switch(opcion)
+
+  if opcion==6:
+    break
+    
+################################################################################################################################################################
+
+listaDeCompra={}
+Arti = None
+precio = 0
+while True :
+  Arti = input("Ingrese el articulo deseado: ")
+  if Arti != 'fin':
+    precio = int(input("Ingrese el precio del producto: "))
+    listaDeCompra[Arti]=precio
+  else:
+    break
+total = sum(list(listaDeCompra.values()))
+print(listaDeCompra)
+print("El total a pagar es: ", total)
+
+
+#######################################################################################################################################################
+
+diccionario2= {
+    'Plátano':1.35, 'Manzana':0.80, 'Pera':0.85, 'Naranja':0.70
+}
+frutas = input("¿que fruta desea?: " )
+kilos = float(input("¿cuantos kilos desea?: " ))
+
+if frutas.title() in diccionario2 :
+  print("el precio por kilo: ", diccionario2[frutas.title()])
+  mult= kilos * diccionario2[frutas.title()]
+  print("el precio total es: ", mult )
+else : 
+  print("La fruta" , frutas , "no está en el diccionario")
+  
+  
+ ##########################################################################################################################################################
+ 
+ datos={}
+nombre = input(" ingrese su nombre: ")
+edad= input(" ingrese su edad: ")
+direccion= input(" ingrese su direccion: ")
+telef = input(" ingrese su telefono: ")
+
+datos["nombre"] = nombre
+datos["edad"] = edad
+datos["direccion"] = direccion
+datos["telef"] = telef
+
+print(nombre + " tiene " + edad, " años, vive en " + direccion," y su numero de telefono es: " +  telef )
+
+
+##########################################################################################################################################################
+
+
+diccionario1= {
+    'Euro':'€', 'Dollar':'$', 'Yen':'¥'
+}
+div = input("ingrese la divisa: " )
+if div.title() in diccionario1 :
+  print ("La divisa tiene el símbolo: ", diccionario1[div.title()])
+  
+else : 
+  print ("La divisa" , div , "no está en el diccionario")
+
+ 
