@@ -1,1 +1,73 @@
 estan los ejerccios de diccionarios y listas
+######
+saldo = int(input('Ingresar monto a pagar: '))
+tipos = (
+    (100000,"billete"),
+    (50000,"billete"),
+    (20000,"billete"),
+    (10000,"billete"),
+    (5000,"billete"),
+    (2000,"billete"),
+    (1000,"billete"),
+    (500,"moneda"),
+    (200,"moneda")
+    #(100,"moneda")
+    #(50,"moneda")
+        )
+ 
+for tipo in tipos:
+    valor=tipo[0]
+    descripcion=tipo[1]
+    s=lambda valor,text: valor > 1 and text+"s" or text
+    
+    if saldo/valor>0:
+        print("%d %s de %d" % ((saldo / valor), s((saldo / valor),descripcion), valor))
+        # cogemos el resto de la division
+        saldo = saldo % valor
+###########################################################################################
+#lista de materias
+
+listamaterias=[]
+num_materias=int(input('ingrese la cantidad de materias: '))
+for i in range(num_materias):
+  materia=input('ingrese el nombre de la materia '+ str(i+1) + ": ")
+  listamaterias.append(materia)
+print(listamaterias)
+
+#notas esperadas para las materias
+
+Notas= []
+for i in range(len(listamaterias)):
+  while True:
+    nota=float(input("ingrese la nota que espera de " + listamaterias[i]+ ": "))
+    if nota>5 or nota<0:
+      print("No es una nota valida")
+    else:
+      Notas.append(nota)
+      break
+print(Notas)
+
+#materias aprobadas o reprobadas
+
+aprobadas= []
+reprobadas= []
+
+for i in range(len(listamaterias)):
+  if Notas[i]<3:
+    reprobadas.append(listamaterias[i])
+  else:
+    aprobadas.append(listamaterias[i])
+   
+print("Materias aprobadas: ", aprobadas)
+print("Materias reprobadas: ", reprobadas)
+
+###########################################################################################
+
+igual, aux = 0, 0
+texto = input("Ingrese la palabra que desea evaluar: ")
+for i in reversed(range(0, len(texto))):
+
+  if len(texto) == igual:
+     print("El texto es palindromo!")
+  else:
+    print("El texto no es palindromo!")
